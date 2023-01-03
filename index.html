@@ -1,0 +1,51 @@
+<head>
+    <style>
+        p, h1, td {
+            font-family: Microsoft JhengHei;
+        }
+    </style>
+</head>
+
+<center>
+<h1>Discord Link Hider Tool</h1>
+<form>
+    <table>
+       <tr>
+           <td>Text before link (optional)</td>
+           <td><textarea name="text_before"></textarea></td>
+       </tr>
+       <tr>
+           <td>Link URL (Shows only embed without the link)</td>
+           <td><input name="link_url"></td>
+       </tr>
+            <td>Resulting text: (copy-paste into Discord) </td>
+            <td><input name="resulting_text" readonly="true"></input> <button onclick="copyclipbutton()">Copy to clipboard</button></td>
+       <tr>
+       </tr>
+    </table>
+  </form>
+
+  <button onclick="main()">Go</button>
+
+
+<script>
+    document.getElementsByName("resulting_text")[0].value = "Nothing yet";
+function main() {
+    var text_before = document.getElementsByName("text_before")[0].value
+    var link_url = document.getElementsByName("link_url")[0].value
+    console.log(`Variables:\n${text_before}\n${link_url}`)
+
+    var hidden_text = `${text_before}||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​|| ${link_url}`
+
+
+    document.getElementsByName("resulting_text")[0].value = hidden_text;
+    console.log(hidden_text)
+}
+function copyclipbutton() {
+      // Get the text field
+    var copyText = document.getElementsByName("resulting_text")[0].value;
+
+    navigator.clipboard.writeText(copyText)
+}
+</script>
+</center>
